@@ -49,6 +49,16 @@ namespace
     {
         std::string doubleChar("ab");
         BOOST_CHECK_MESSAGE("a1" == soundex->encode(doubleChar), "Double char encode bad");
+        doubleChar = "cz";
+        BOOST_CHECK_MESSAGE("c2" == soundex->encode(doubleChar), "Double char encode bad");
+    }
+
+    BOOST_FIXTURE_TEST_CASE(strangeChars, Fixture)
+    {
+        std::string chars("a!");
+        BOOST_CHECK_MESSAGE("a" == soundex->encode(chars), "chars encode bad");
+        chars="#a!";
+        BOOST_CHECK_MESSAGE("a" == soundex->encode(chars), "chars encode bad");
     }
 
     BOOST_AUTO_TEST_SUITE_END();

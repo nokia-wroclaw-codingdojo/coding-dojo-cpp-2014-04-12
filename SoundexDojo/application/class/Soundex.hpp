@@ -13,6 +13,10 @@ public:
     std::string encode(std::string arg);
 private:
     std::map<char, char> translationTable;
+    char removeInvalidChars(std::string arg)
+    {
+
+    }
 };
 
 #endif

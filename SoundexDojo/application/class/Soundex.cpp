@@ -1,4 +1,5 @@
 #include <Class/Soundex.hpp>
+#include <cctype>
 
 Soundex::Soundex()
 {
@@ -28,15 +29,25 @@ Soundex::~Soundex()
 
 std::string Soundex::encode(std::string arg)
 {
-    //std::string result(arg.at(0));
-
-    for (int i = 1; i < arg.length(); ++i) 
+    std::string result;
+    if (!arg.empty())
     {
-        if (translationTable.count(arg[i])) 
+        for (int i = 0; i < arg.length(); ++i) 
         {
-            arg[i] = translationTable[arg[i]];
+            if(isalpha(arg[i]))
+            {
+                result += arg[i];
+                
+            }
+        }
+
+        for (int i = 1; i < result.length(); ++i) 
+        {
+            if (translationTable.count(result[i]))
+            {
+                result[i] = translationTable[result[i]];
+            }
         }
     }
-
-    return arg;
+    return result;
 }
