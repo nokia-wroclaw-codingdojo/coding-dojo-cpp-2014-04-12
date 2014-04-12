@@ -2,6 +2,7 @@
 #define SOUNDEX_HPP_ASFSADF
 
 #include <string>
+#include <map>
 
 class Soundex
 {
@@ -10,6 +11,8 @@ public:
     virtual ~Soundex();
 
     std::string encode(std::string arg);
+private:
+    std::map<char, char> translationTable;
 };
 
 #endif

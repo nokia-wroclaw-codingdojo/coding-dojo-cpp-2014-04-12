@@ -32,9 +32,23 @@ namespace
     BOOST_AUTO_TEST_SUITE( SoundexTest );
 
     BOOST_FIXTURE_TEST_CASE(Empty_String, Fixture)
-    {   
+    {
         std::string emptyString;
         BOOST_CHECK_MESSAGE(emptyString == soundex->encode(""), "String is not empty");
+    }
+
+    BOOST_FIXTURE_TEST_CASE(Singlechar_String, Fixture)
+    {
+        std::string singleChar("a");
+        BOOST_CHECK_MESSAGE("a" == soundex->encode(singleChar), "One char encode bad");
+        singleChar = "b";
+        BOOST_CHECK_MESSAGE("b" == soundex->encode(singleChar), "One char encode bad");
+    }
+
+    BOOST_FIXTURE_TEST_CASE(doubleChar, Fixture)
+    {
+        std::string doubleChar("ab");
+        BOOST_CHECK_MESSAGE("a1" == soundex->encode(doubleChar), "Double char encode bad");
     }
 
     BOOST_AUTO_TEST_SUITE_END();
