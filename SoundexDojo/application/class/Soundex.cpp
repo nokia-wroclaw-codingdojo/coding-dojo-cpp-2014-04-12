@@ -30,24 +30,32 @@ Soundex::~Soundex()
 std::string Soundex::encode(std::string arg)
 {
     std::string result;
+    std::string tmp;
+
     if (!arg.empty())
     {
-        for (int i = 0; i < arg.length(); ++i) 
+        for (size_t i = 0; i < arg.length(); ++i) 
         {
             if(isalpha(arg[i]))
             {
                 result += arg[i];
-                
             }
         }
 
-        for (int i = 1; i < result.length(); ++i) 
+        if(!result.empty())
+        {
+            tmp += result[0];
+        }
+
+        for (size_t i = 1; i < result.length(); ++i) 
         {
             if (translationTable.count(result[i]))
             {
-                result[i] = translationTable[result[i]];
+                tmp += translationTable[result[i]];
             }
         }
     }
-    return result;
+
+
+    return tmp;
 }

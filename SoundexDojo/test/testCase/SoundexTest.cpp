@@ -61,5 +61,15 @@ namespace
         BOOST_CHECK_MESSAGE("a" == soundex->encode(chars), "chars encode bad");
     }
 
+    BOOST_FIXTURE_TEST_CASE(charToDeleteIsDelete, Fixture)
+    {
+        std::string chars("aab");
+        BOOST_CHECK_MESSAGE("a1" == soundex->encode(chars), "char is not deleted");
+        chars="#abab!";
+        BOOST_CHECK_MESSAGE("a11" == soundex->encode(chars), "char is not deleted");
+    }
+
+
+
     BOOST_AUTO_TEST_SUITE_END();
 }
