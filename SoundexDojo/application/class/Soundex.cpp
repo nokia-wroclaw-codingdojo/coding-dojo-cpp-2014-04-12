@@ -1,5 +1,6 @@
 #include <Class/Soundex.hpp>
 #include <cctype>
+#include <algorithm>
 
 Soundex::Soundex()
 {

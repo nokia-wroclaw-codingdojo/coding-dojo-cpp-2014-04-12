@@ -69,7 +69,11 @@ namespace
         BOOST_CHECK_MESSAGE("a11" == soundex->encode(chars), "char is not deleted");
     }
 
-
+    //BOOST_FIXTURE_TEST_CASE(twoCharsNext, Fixture)
+    //{
+    //    std::string chars("abb");
+    //    BOOST_CHECK_MESSAGE("a1" == soundex->encode(chars), "char is bad");
+    //}
 
     BOOST_AUTO_TEST_SUITE_END();
 }
